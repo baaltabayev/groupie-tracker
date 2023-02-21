@@ -19,7 +19,6 @@ Groupie tracker search bar consists of creating a functional program that search
 
 # The authors
 @abaltaba
-@nzharylk
 
 ## How do I run the program?
 
