@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/ui/static/artist-page.css">
+</head>
+<body>
+    <div class="bg"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div>
+       
+        <a clas="but" href="/">
+            <div  class="AllArtist">All artist
+            </div>
+
+            </a>
+
+        <div class="content">
+            <h1 style="font-weight: 300;">{{.Name}}</h1>
+
+            
+        </div>  
+        
+        <div class="all">
+
+            
+    <div class="content_left">
+
+    <img class="img"src = {{.Image}} alt = {{.Name}}>
+    <div class="shortinfo">
+
+        <br>
+        <p>This artist/band started his musical career from {{.CreationDate}}.</p>
+        <p>First album of this artist/band was made in {{.FirstAlbum}}.</p>
+    </div>
+    <div class="members">
+
+        <p>Members:</p>
+            {{range .Members}}
+            {{.}}<br>
+            {{end}}
+        </div>
+        <div class="dates">
+
+            <p> Creation date:</p>
+            <p>{{.CreationDate}}</p>
+            <p>First album release:</p>
+            <p>{{.FirstAlbum}}</p>
+        </div>
+        
+        
+</div>
+<div class="content_rigth">
+
+    <p class="concerts">Concerts:</p>
+    <table class="concerts">
+        
+        {{range $location, $dates := .DatesLocations}}
+        <tr>
+            <td>{{$location}}</td>
+            <td>
+                {{range $dates}}
+                {{.}}<br>
+                {{end}}
+            </td>
+        </tr>
+        {{end}}
+        
+    </table>
+    
+</ul>
+</div>
+</div>
+
+</body>
+</html>

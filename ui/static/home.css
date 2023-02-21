@@ -1,0 +1,78 @@
+body{font-family: 'Inter', sans-serif;
+    margin:0;
+}
+
+.name{
+    line-height: 44px;
+    color: black;
+    font-weight: 200;
+}
+.img{
+    background-color: rgb(134, 134, 134);
+    width: 70%;
+   
+    border-radius: 20%;
+    box-shadow: 0 0 6px 1px #000000;
+    padding: 0.5%;
+  
+}
+
+a:link { text-decoration: rgb(46, 46, 46); }
+
+a:visited { text-decoration: none; }
+
+a:hover { text-decoration: none; }
+
+a:active { text-decoration: black; }
+
+html {
+    height:100%;
+  }
+  
+ 
+  
+  .bg {
+    animation:slide 20s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #0059ff 50%, white 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+  
+  .bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:25s;
+  }
+  
+  .bg3 {
+    animation-duration:16s;
+  }
+  
+  .content {
+  
+  
+  
+    
+    text-align: center;
+   font-weight: 200;
+    
+    font-size: 44px;
+    
+  }
+  
+ 
+  @keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
+  }
+  h2{
+    font-weight: 200;
+  }

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+    <center>
+        <head>
+            <title> Groupie-tracker</title>
+            <link rel = "stylesheet" href = "/ui/static/home.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400&display=swap" rel="stylesheet">
+        </head>
+        <div class="bg"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div>
+        <div class="content">
+        
+        <body style=" width: 100%;">
+            <h2> Groupie-tracker-filters</h2>
+        </div>
+         
+        <form action="/filters/" method="get">
+            <div>
+                <input type="range" id="CreationDate" name="CreationDateTo" min="1965" max="2013" value="1965" oninput="this.nextElementSibling.value = this.value"/>
+                <output class="year">1965</output>
+                <label for="CreationDate">CreationDate To</label>
+                <input type="range" id="CreationDate" name="CreationDateFrom" min="1965" max="2013" value="2000" oninput="this.nextElementSibling.value = this.value"/>
+                <output class="year">2000</output>
+                <label for="CreationDate">CreationDate From</label>
+            </div>
+            <div>
+                <input type="range" id="FirstAlbum" name="FirstAlbumTo" min="1970" max="2020" value="1970" oninput="this.nextElementSibling.value = this.value"/>
+                <output class="year">1970</output>
+                <label for="FirstAlbum">FirstAlbum To</label>
+                <input type="range" id="FirstAlbum" name="FirstAlbumFrom" min="1970" max="2020" value="2000" oninput="this.nextElementSibling.value = this.value"/>
+                <output class="year">2000</output>
+                <label for="FirstAlbum">FirstAlbum From</label>
+              </div>
+              <div>
+                <label for="FirstAlbum">№ Members</label>
+                <input type="checkbox" id="1" name="member" value="1" >
+                <label for="scales">1</label>
+                <input type="checkbox" id="2" name="member" value="2">
+                <label for="scales">2</label>
+                <input type="checkbox" id="3" name="member" value="3">
+                <label for="scales">3</label>
+                <input type="checkbox" id="4" name="member" value="4">
+                <label for="scales">4</label>
+                <input type="checkbox" id="5" name="member" value="5">
+                <label for="scales">5</label>
+                <input type="checkbox" id="6" name="member" value="6">
+                <label for="scales">6</label>
+                <input type="checkbox" id="7" name="member" value="7">
+                <label for="scales">7</label>
+                <input type="checkbox" id="8" name="member" value="8">
+                <label for="scales">8</label>
+              </div>
+            <p><input list="artist" name="locations" placeholder="locations...">
+                <datalist id="artist">
+                 {{range .}}
+                    {{range $location, $dates := .DatesLocations}}
+                    <option value="{{$location}}">{{$location}} - location</option>
+                         {{end}}
+                 {{end}}
+                </datalist> 
+            <input type="submit" value="filter"></p>
+           </form> 
+           {{if.}}
+            <div style="display:flex; flex-wrap: wrap; ">
+                {{range .}}
+                <div  class = "name+img">
+                    <div     > 
+                        <a class = "name"   href = "/artist/{{.Id}}" > {{.Name}} </a>
+                    </div>
+                        <a  href="/artist/{{.Id}}" > <img class = "img" src= {{.Image}}></a>
+                </div>
+                {{end}}
+        </div>
+        {{else}}
+                    <h1><center>Empty match!</center></h1>
+                    {{end}}
+        </body>
+    </center>
+</html>
